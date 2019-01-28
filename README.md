@@ -20,21 +20,21 @@ Follow these step to make a Spark Cluster up and Running:
         Where MASTER-IP, SLAVE01-IP, and SLAVE02-IP are private IPs of your EC2 instances
 4. Install Java 8
    ```
-   sudo add-apt-repository ppa:webupd8team/java
-   sudo apt-get update
-   sudo apt-get install oracle-java8-installer
+          sudo add-apt-repository ppa:webupd8team/java
+          sudo apt-get update
+          sudo apt-get install oracle-java8-installer
    ```
 5. Install Scala
    ```    
-   sudo apt-get install scala
+          sudo apt-get install scala
    ```
 6. Install the ssh client so that you can ssh to slaves from master node
    ``` 
-   sudo apt-get install openssh-server openssh-client
+          sudo apt-get install openssh-server openssh-client
    ```
 7. Generate the key pairs using
    ```
-   ssh-keygen -t rsa -P ""
+          ssh-keygen -t rsa -P ""
    ```
    1. This will create two keys: private (id_rsa) and public( id_rsa.pub)
    2. Copy the content of id_rsa.pub to the following file ~/.ssh/authorised_keys of all the instances (master node as well).
@@ -44,11 +44,11 @@ Follow these step to make a Spark Cluster up and Running:
 9.  Download Spark ```sudo wget http://apache.claz.org/spark/spark-2.4.0/spark-2.4.0-bin-hadoop2.7.tgz ```
 10. Untar the file ```tar xzf spark-2.4.0-bin-hadoop2.7.tgz ```
 11. Now edit /.bashrc file and add the following lines to the bottom of bashrc file
-   ```
-   export JAVA_HOME=/usr/lib/jvm/java-8-oracle/
-   export SPARK_HOME=/home/ubuntu/spark-2.4.0-bin-hadoop2.7
-   export PATH=$PATH:$SPARK_HOME/bin
-   ```
+    ```
+          export JAVA_HOME=/usr/lib/jvm/java-8-oracle/
+          export SPARK_HOME=/home/ubuntu/spark-2.4.0-bin-hadoop2.7
+          export PATH=$PATH:$SPARK_HOME/bin
+    ```
 12. Now, we have to create a spark-env.sh file that will be a configuration to our spark cluster.
    1. cd conf folder in and perform the command ```cp spark-env.sh.template spark-env.sh```
    2. Add these lines to the spark-env.sh file 
@@ -57,13 +57,13 @@ Follow these step to make a Spark Cluster up and Running:
       export SPARK_WORKER_CORES=8
       ```
 13. Create another file named "slaves" to this folder and add 
-   ```
-   slaves01
-   slaves02
-   ```
+    ```
+          slaves01
+          slaves02
+    ```
 14. Create a TarBall of the configured setup
     ```
-    tar czf spark.tar.gz spark-2.4.0-bin-hadoop2.7
+          tar czf spark.tar.gz spark-2.4.0-bin-hadoop2.7
     ```
 #### Installation on Master node is finished. Now, we need to install Spark and other modules to Slaves Instances.
 
