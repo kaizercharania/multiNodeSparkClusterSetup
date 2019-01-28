@@ -50,8 +50,8 @@ Follow these step to make a Spark Cluster up and Running:
           export PATH=$PATH:$SPARK_HOME/bin
     ```
 12. Now, we have to create a spark-env.sh file that will be a configuration to our spark cluster.
-   1. cd conf folder in and perform the command ```cp spark-env.sh.template spark-env.sh```
-   2. Add these lines to the spark-env.sh file 
+    1. cd conf folder in and perform the command ```cp spark-env.sh.template spark-env.sh```
+    2. Add these lines to the spark-env.sh file 
       ```
       export JAVA_HOME=/usr/lib/jvm/java-8-oracle/
       export SPARK_WORKER_CORES=8
